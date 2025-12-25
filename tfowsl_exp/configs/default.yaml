@@ -1,0 +1,66 @@
+run:
+  seed: 7
+  device: cpu
+  out_dir: outputs/default_run
+  steps: 300
+  batch_size: 64
+  eval_every: 50
+
+data:
+  stream:
+    type: jsonl
+    path: stream_train.jsonl   # 你已有的 make_stream 输出
+  oos_name: ood
+  intent2domain_path: null     # 可选：提供 intent->domain 映射 json；没有则 domain 都是 "unknown_domain"
+
+supervision:
+  label_ratio: 0.2
+  delay_steps: 50
+  min_per_intent: 1
+
+metrics:
+  delay:
+    mode: domain        # domain | intent
+  fer:
+    mode: oos_trigger   # oos_trigger | mixture
+    mixture:
+      purity_threshold: 0.7
+      oos_ratio_threshold: 0.3
+      min_support: 20
+
+model:
+  backbone:
+    name: distilbert-base-uncased
+    max_length: 64
+
+methods:
+  list: [ER, MSP, Energy, FixedThresholdExpand, ClusterExpand, TACMem]
+
+  ER:
+    lr: 0.0001
+    buffer_size: 2000
+
+  FixedThresholdExpand:
+    thr: 0.7
+    frac_trigger: 0.3
+    new_class_per_trigger: 1
+    pseudo_topk: 16
+    pseudo_weight: 0.2
+    lr: 0.0001
+
+  ClusterExpand:
+    thr: 0.7
+    min_unknown: 20
+    k: 2
+    pseudo_weight: 0.2
+    lr: 0.0001
+
+  TACMem:
+    thr: 0.7
+    ema_beta: 0.9
+    min_cons_steps: 3
+    min_unknown: 20
+    risk_oos_max: 0.5
+    pseudo_topk: 16
+    pseudo_weight: 0.2
+    lr: 0.0001

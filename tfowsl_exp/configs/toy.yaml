@@ -1,0 +1,53 @@
+run:
+  seed: 1
+  device: cpu
+  out_dir: outputs/toy_run
+  steps: 30
+  batch_size: 16
+  eval_every: 10
+
+data:
+  stream:
+    type: toy
+  oos_name: ood
+  intent2domain_path: null
+
+supervision:
+  label_ratio: 0.3
+  delay_steps: 3
+  min_per_intent: 1
+
+metrics:
+  delay:
+    mode: domain
+  fer:
+    mode: oos_trigger
+    mixture:
+      purity_threshold: 0.7
+      oos_ratio_threshold: 0.3
+      min_support: 5
+
+model:
+  backbone:
+    name: distilbert-base-uncased
+    max_length: 32
+
+methods:
+  list: [FixedThresholdExpand, TACMem]
+  FixedThresholdExpand:
+    thr: 0.7
+    frac_trigger: 0.3
+    new_class_per_trigger: 1
+    pseudo_topk: 8
+    pseudo_weight: 0.3
+    lr: 0.0001
+
+  TACMem:
+    thr: 0.7
+    ema_beta: 0.8
+    min_cons_steps: 2
+    min_unknown: 8
+    risk_oos_max: 0.6
+    pseudo_topk: 8
+    pseudo_weight: 0.3
+    lr: 0.0001

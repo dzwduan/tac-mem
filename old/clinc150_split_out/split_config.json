@@ -1,0 +1,220 @@
+{
+  "dataset": "cmaldona/All-Generalization-OOD-CLINC150",
+  "oos_name": "ood",
+  "schedule": {
+    "y0_domains": [
+      "auto_and_commute",
+      "banking",
+      "credit_cards",
+      "home"
+    ],
+    "phase_domains": [
+      "kitchen_and_dining",
+      "meta",
+      "small_talk",
+      "travel",
+      "utility",
+      "work"
+    ]
+  },
+  "assignments": {
+    "Y0": [
+      "account_blocked",
+      "application_status",
+      "apr",
+      "balance",
+      "bill_balance",
+      "bill_due",
+      "calendar",
+      "calendar_update",
+      "card_declined",
+      "credit_limit",
+      "credit_limit_change",
+      "credit_score",
+      "current_location",
+      "damaged_card",
+      "directions",
+      "distance",
+      "expiration_date",
+      "freeze_account",
+      "gas",
+      "gas_type",
+      "improve_credit_score",
+      "interest_rate",
+      "international_fees",
+      "jump_start",
+      "last_maintenance",
+      "min_payment",
+      "mpg",
+      "new_card",
+      "next_song",
+      "oil_change_how",
+      "oil_change_when",
+      "order",
+      "order_checks",
+      "order_status",
+      "pay_bill",
+      "pin_change",
+      "play_music",
+      "redeem_rewards",
+      "reminder",
+      "reminder_update",
+      "replacement_card_duration",
+      "report_fraud",
+      "report_lost_card",
+      "rewards_balance",
+      "routing",
+      "schedule_maintenance",
+      "shopping_list",
+      "shopping_list_update",
+      "smart_home",
+      "spending_history",
+      "tire_change",
+      "tire_pressure",
+      "todo_list",
+      "todo_list_update",
+      "traffic",
+      "transactions",
+      "transfer",
+      "uber",
+      "update_playlist",
+      "what_song"
+    ],
+    "phases": [
+      {
+        "name": "Phase-1",
+        "domain": "kitchen_and_dining",
+        "intents": [
+          "accept_reservations",
+          "calories",
+          "cancel_reservation",
+          "confirm_reservation",
+          "cook_time",
+          "food_last",
+          "how_busy",
+          "ingredient_substitution",
+          "ingredients_list",
+          "meal_suggestion",
+          "nutrition_info",
+          "recipe",
+          "restaurant_reservation",
+          "restaurant_reviews",
+          "restaurant_suggestion"
+        ]
+      },
+      {
+        "name": "Phase-2",
+        "domain": "meta",
+        "intents": [
+          "cancel",
+          "change_accent",
+          "change_ai_name",
+          "change_language",
+          "change_speed",
+          "change_user_name",
+          "change_volume",
+          "maybe",
+          "no",
+          "repeat",
+          "reset_settings",
+          "sync_device",
+          "user_name",
+          "whisper_mode",
+          "yes"
+        ]
+      },
+      {
+        "name": "Phase-3",
+        "domain": "small_talk",
+        "intents": [
+          "are_you_a_bot",
+          "do_you_have_pets",
+          "fun_fact",
+          "goodbye",
+          "greeting",
+          "how_old_are_you",
+          "meaning_of_life",
+          "tell_joke",
+          "thank_you",
+          "what_are_your_hobbies",
+          "what_can_i_ask_you",
+          "what_is_your_name",
+          "where_are_you_from",
+          "who_do_you_work_for",
+          "who_made_you"
+        ]
+      },
+      {
+        "name": "Phase-4",
+        "domain": "travel",
+        "intents": [
+          "book_flight",
+          "book_hotel",
+          "car_rental",
+          "carry_on",
+          "exchange_rate",
+          "flight_status",
+          "international_visa",
+          "lost_luggage",
+          "plug_type",
+          "timezone",
+          "translate",
+          "travel_alert",
+          "travel_notification",
+          "travel_suggestion",
+          "vaccines"
+        ]
+      },
+      {
+        "name": "Phase-5",
+        "domain": "utility",
+        "intents": [
+          "alarm",
+          "calculator",
+          "date",
+          "definition",
+          "find_phone",
+          "flip_coin",
+          "make_call",
+          "measurement_conversion",
+          "roll_dice",
+          "share_location",
+          "spelling",
+          "text",
+          "time",
+          "timer",
+          "weather"
+        ]
+      },
+      {
+        "name": "Phase-6",
+        "domain": "work",
+        "intents": [
+          "direct_deposit",
+          "income",
+          "insurance",
+          "insurance_change",
+          "meeting_schedule",
+          "next_holiday",
+          "payday",
+          "pto_balance",
+          "pto_request",
+          "pto_request_status",
+          "pto_used",
+          "rollover_401k",
+          "schedule_meeting",
+          "taxes",
+          "w2"
+        ]
+      }
+    ]
+  },
+  "notes": {
+    "unit": "domain",
+    "rationale": [
+      "Domain corresponds to functional module; emergence is interpretable.",
+      "One-domain-per-phase gives sufficient signal strength per emergence event.",
+      "OOS remains unknown forever; used to measure false expansion risk."
+    ]
+  }
+}

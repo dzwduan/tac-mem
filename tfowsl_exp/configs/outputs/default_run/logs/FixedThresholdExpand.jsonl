@@ -1,0 +1,6 @@
+{"t": 50, "mean_unknown": 0.9918541312217712, "created_classes": 50, "n_events": 850, "_wall": 10.820711135864258}
+{"t": 100, "mean_unknown": 0.9934098720550537, "created_classes": 100, "n_events": 1700, "_wall": 21.772146224975586}
+{"t": 150, "mean_unknown": 0.9945067167282104, "created_classes": 150, "n_events": 2550, "_wall": 33.065866231918335}
+{"t": 200, "mean_unknown": 0.9952967762947083, "created_classes": 200, "n_events": 3400, "_wall": 44.36590600013733}
+{"t": 250, "mean_unknown": 0.9959319829940796, "created_classes": 250, "n_events": 4250, "_wall": 55.9158661365509}
+{"t": 300, "mean_unknown": 0.9963550567626953, "created_classes": 300, "n_events": 5100, "_wall": 67.13565111160278}

@@ -1,0 +1,55 @@
+{
+  "train": {
+    "total_samples": 15200,
+    "in_scope_samples": 15000,
+    "oos_samples": 200,
+    "in_scope_by_domain": {
+      "auto_and_commute": 1500,
+      "banking": 1500,
+      "credit_cards": 1500,
+      "home": 1500,
+      "kitchen_and_dining": 1500,
+      "meta": 1500,
+      "small_talk": 1500,
+      "travel": 1500,
+      "utility": 1500,
+      "work": 1500
+    }
+  },
+  "validation": {
+    "total_samples": 3200,
+    "in_scope_samples": 3100,
+    "oos_samples": 100,
+    "in_scope_by_domain": {
+      "UNKNOWN_DOMAIN": 100,
+      "auto_and_commute": 300,
+      "banking": 300,
+      "credit_cards": 300,
+      "home": 300,
+      "kitchen_and_dining": 300,
+      "meta": 300,
+      "small_talk": 300,
+      "travel": 300,
+      "utility": 300,
+      "work": 300
+    }
+  },
+  "test": {
+    "total_samples": 7900,
+    "in_scope_samples": 6900,
+    "oos_samples": 1000,
+    "in_scope_by_domain": {
+      "UNKNOWN_DOMAIN": 2400,
+      "auto_and_commute": 450,
+      "banking": 450,
+      "credit_cards": 450,
+      "home": 450,
+      "kitchen_and_dining": 450,
+      "meta": 450,
+      "small_talk": 450,
+      "travel": 450,
+      "utility": 450,
+      "work": 450
+    }
+  }
+}
