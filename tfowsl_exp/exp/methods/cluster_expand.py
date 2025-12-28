@@ -7,7 +7,7 @@ from .base import MethodBase, StepOut
 class ClusterExpand(MethodBase):
     def __init__(self, backbone, num_classes: int, device: str, lr: float, thr: float, min_unknown: int, k: int, pseudo_weight: float):
         super().__init__("ClusterExpand", backbone, num_classes, device)
-        H = backbone.encoder.config.hidden_size
+        H = backbone.hidden_size
         self.head = torch.nn.Linear(H, num_classes).to(device)
         self.opt = torch.optim.AdamW(self.head.parameters(), lr=lr)
 

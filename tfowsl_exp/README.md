@@ -6,6 +6,8 @@ python3 -m exp.run --config configs/toy.yaml
 ## Run (jsonl stream)
 python3 -m exp.run --config configs/default.yaml
 
+GPU: set `run.device: cuda` (default) and optionally `run.num_gpus` to control DataParallel (uses all visible GPUs when available).
+
 Outputs:
 - outputs/<run>/logs/*.jsonl
 - outputs/<run>/events_<method>.json

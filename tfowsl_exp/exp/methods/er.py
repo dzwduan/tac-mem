@@ -7,7 +7,7 @@ from .base import MethodBase, StepOut
 class ER(MethodBase):
     def __init__(self, backbone, num_classes: int, device: str, lr: float, buffer_size: int):
         super().__init__("ER", backbone, num_classes, device)
-        H = backbone.encoder.config.hidden_size
+        H = backbone.hidden_size
         self.head = torch.nn.Linear(H, num_classes).to(device)
         self.opt = torch.optim.AdamW(self.head.parameters(), lr=lr)
         self.buffer_size = buffer_size

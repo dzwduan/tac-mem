@@ -17,7 +17,7 @@ class FixedThresholdExpand(MethodBase):
         pseudo_weight: float,
     ):
         super().__init__("FixedThresholdExpand", backbone, num_classes, device)
-        H = backbone.encoder.config.hidden_size
+        H = backbone.hidden_size
         self.head = torch.nn.Linear(H, num_classes).to(device)
         self.opt = torch.optim.AdamW(self.head.parameters(), lr=lr)
 

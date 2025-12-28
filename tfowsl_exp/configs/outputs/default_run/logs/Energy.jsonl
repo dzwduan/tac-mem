@@ -1,6 +1,6 @@
-{"t": 50, "mean_unknown": -5.016945838928223, "created_classes": 0, "n_events": 0, "_wall": 11.708474159240723}
-{"t": 100, "mean_unknown": -5.017612934112549, "created_classes": 0, "n_events": 0, "_wall": 23.21271276473999}
-{"t": 150, "mean_unknown": -5.017149925231934, "created_classes": 0, "n_events": 0, "_wall": 34.697285890579224}
-{"t": 200, "mean_unknown": -5.017975807189941, "created_classes": 0, "n_events": 0, "_wall": 46.674235582351685}
-{"t": 250, "mean_unknown": -5.01677131652832, "created_classes": 0, "n_events": 0, "_wall": 58.60908889770508}
-{"t": 300, "mean_unknown": -5.019901275634766, "created_classes": 0, "n_events": 0, "_wall": 70.17474913597107}
+{"t": 50, "mean_unknown": -5.016945838928223, "created_classes": 0, "n_events": 0, "_wall": 2.1263206005096436}
+{"t": 100, "mean_unknown": -5.017612934112549, "created_classes": 0, "n_events": 0, "_wall": 4.1459736824035645}
+{"t": 150, "mean_unknown": -5.017149925231934, "created_classes": 0, "n_events": 0, "_wall": 6.224281072616577}
+{"t": 200, "mean_unknown": -5.017975807189941, "created_classes": 0, "n_events": 0, "_wall": 8.389703750610352}
+{"t": 250, "mean_unknown": -5.01677131652832, "created_classes": 0, "n_events": 0, "_wall": 10.456177949905396}
+{"t": 300, "mean_unknown": -5.019901275634766, "created_classes": 0, "n_events": 0, "_wall": 12.629720211029053}

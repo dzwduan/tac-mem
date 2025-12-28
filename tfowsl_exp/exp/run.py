@@ -71,16 +71,14 @@ def build_methods(cfg: Dict[str, Any], backbone, num_classes: int, device: str):
             raise ValueError(f"Unknown method: {n}")
     return out
 
-from pathlib import Path
-
-
-def _resolve_from_cfg_dir(cfg_dir: Path, p: str | None) -> str | None:
-    if p is None:
-        return None
-    pp = Path(p)
-    if pp.is_absolute():
-        return str(pp)
-    return str((cfg_dir / pp).resolve())
+def _select_device(device_str: str) -> str:
+    """Pick device, gracefully falling back if CUDA is unavailable."""
+    if device_str is None or device_str == "auto":
+        return "cuda" if torch.cuda.is_available() else "cpu"
+    if device_str.startswith("cuda") and (not torch.cuda.is_available()):
+        print("CUDA requested but not available; falling back to CPU.")
+        return "cpu"
+    return device_str
 
 
 def main():
@@ -107,7 +105,8 @@ def main():
     torch.manual_seed(seed)
     np.random.seed(seed)
 
-    device = cfg["run"]["device"]
+    device = _select_device(cfg["run"].get("device", "cpu"))
+    num_gpus = int(cfg["run"].get("num_gpus", 1))
     out_dir = cfg["run"]["out_dir"]
     os.makedirs(out_dir, exist_ok=True)
     os.makedirs(os.path.join(out_dir, "logs"), exist_ok=True)
@@ -138,7 +137,7 @@ def main():
 
     # build shared backbone
     bb = cfg["model"]["backbone"]
-    backbone = build_backbone(bb["name"], int(bb["max_length"]), device=device)
+    backbone = build_backbone(bb["name"], int(bb["max_length"]), device=device, num_gpus=num_gpus)
 
     # Build label_name -> id for supervised update (only for in-scope labels)
     # For CLINC150, you can provide a full mapping; here we infer from stream.

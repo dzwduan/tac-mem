@@ -1,6 +1,7 @@
 run:
   seed: 1
-  device: cpu
+  device: cuda       # cuda | cpu | auto
+  num_gpus: 1        # DataParallel: use up to this many visible GPUs
   out_dir: outputs/toy_run
   steps: 30
   batch_size: 16

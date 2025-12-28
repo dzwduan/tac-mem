@@ -6,7 +6,7 @@ from .base import MethodBase, StepOut
 class Energy(MethodBase):
     def __init__(self, backbone, num_classes: int, device: str):
         super().__init__("Energy", backbone, num_classes, device)
-        H = backbone.encoder.config.hidden_size
+        H = backbone.hidden_size
         self.head = torch.nn.Linear(H, num_classes).to(device)
 
     def step(self, t, texts, labels, meta):
